@@ -1,1 +1,1 @@
-# CityU-UR-U3D-Water-sim
+# CityU UR Unity3D Water simulation
