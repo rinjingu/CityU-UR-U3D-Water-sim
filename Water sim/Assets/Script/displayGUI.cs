@@ -45,6 +45,7 @@ public class displayGUI : MonoBehaviour
             case 1:{
                 Transform m_transform = GetComponent<Transform>();
                 info += "Position : " + m_transform.position.x + "/" + m_transform.position.y + "/" + m_transform.position.z + "\n";
+                info += "Rotation : " + m_transform.rotation.x + "/" + m_transform.rotation.y + "/" + m_transform.rotation.z + "\n";
                 return info;
             }
             case 2:{
