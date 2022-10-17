@@ -95,5 +95,6 @@ public class inGameGUI : MonoBehaviour
 
         //to be added scene generation
         isGameStart = true;
+        Time.timeScale = timeScale;
     }
 }
