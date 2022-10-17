@@ -6,19 +6,32 @@ public class inGameGUI : MonoBehaviour
 {
     public GameObject tabGUI;
     public GameObject pauseMenu;
+    public GameObject m_mainMenu;
+    public GameObject m_startUpMenu;
+    public GameObject m_settingMenu;
     public bool isGamePause;
+    private bool isGameStart;
     public float timeScale;
+
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 0.0f;
+        m_mainMenu.SetActive(true);
+        m_startUpMenu.SetActive(false);
+        m_settingMenu.SetActive(false);
         pauseMenu.SetActive(false);
         tabGUI.SetActive(false);
+        isGameStart = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        generalGUI();
+        if (isGameStart)
+        {
+            generalGUI();
+        }
     }
 
     public void generalGUI()
@@ -58,5 +71,29 @@ public class inGameGUI : MonoBehaviour
     {
         Time.timeScale = timeScale;
         isGamePause = false;
+    }
+    public void menuBack(){
+        m_mainMenu.SetActive(true);
+        m_startUpMenu.SetActive(false);
+        m_settingMenu.SetActive(false);
+    }
+
+    public void startUpMenu(){
+        m_mainMenu.SetActive(false);
+        m_startUpMenu.SetActive(true);
+        m_settingMenu.SetActive(false);
+    }
+
+    public void settingMenu(){
+        m_mainMenu.SetActive(false);
+        m_startUpMenu.SetActive(false);
+        m_settingMenu.SetActive(true);
+    }
+
+    public void startGame(){
+        m_startUpMenu.SetActive(false); 
+
+        //to be added scene generation
+        isGameStart = true;
     }
 }
