@@ -5,18 +5,12 @@ using UnityEngine;
 
 public class URController : MonoBehaviour
 {
-    Vector3 inVector = new Vector3();
-    Vector3 velocity = new Vector3();
-    Rigidbody m_Rigidbody;
-
-    [SerializeField]
-    float m_Speed = 3.0f;
-
-    [SerializeField]
-    float m_RotSpeed = 2.1f;
-
-    [SerializeField]
-    float m_liftingSpeed = 1.0f;
+    private Vector3 inVector = new Vector3();
+    public Vector3 velocity = new Vector3();
+    private Rigidbody m_Rigidbody;
+    public float m_Speed;
+    public float m_RotSpeed;
+    public float m_liftingSpeed;
 
     // Start is called before the first frame update
     void Start()

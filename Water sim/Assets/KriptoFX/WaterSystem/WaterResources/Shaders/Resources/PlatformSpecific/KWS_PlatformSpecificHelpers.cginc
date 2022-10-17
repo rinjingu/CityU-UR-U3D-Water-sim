@@ -41,7 +41,7 @@
 #endif
 
 #if defined(ATMOSPHERIC_HEIGHT_FOG)
-	#include "Assets/Third-party assets/BOXOPHOBIC/Atmospheric Height Fog/Core/Includes/AtmosphericHeightFog.cginc"
+	#include ""
 #endif
 
 #if defined(VOLUMETRIC_FOG_AND_MIST)

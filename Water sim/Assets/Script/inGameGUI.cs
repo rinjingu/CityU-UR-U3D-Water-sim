@@ -11,7 +11,7 @@ public class inGameGUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pauseMenu.SetActive(false); 
+        pauseMenu.SetActive(false);
         tabGUI.SetActive(false);
     }
 
@@ -21,31 +21,41 @@ public class inGameGUI : MonoBehaviour
         generalGUI();
     }
 
-    public void generalGUI(){
-        if(Input.GetKeyDown(KeyCode.Escape)){
+    public void generalGUI()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
             tabGUI.SetActive(false);
-            if(isGamePause){
+            if (isGamePause)
+            {
                 pauseMenu.SetActive(false);
                 resumeGame();
-            }else{
+            }
+            else
+            {
                 pauseMenu.SetActive(true);
                 pauseGame();
             }
-        }else if(!isGamePause){
+        }
+        else if (!isGamePause)
+        {
             tabGUI.SetActive(Input.GetKey(KeyCode.Tab));
         }
     }
 
-    public void pauseGame(){
+    public void pauseGame()
+    {
         Time.timeScale = 0.0f;
         isGamePause = true;
     }
 
-    public void resumeButton(){
+    public void resumeButton()
+    {
         pauseMenu.SetActive(false);
         resumeGame();
     }
-    public void resumeGame(){
+    public void resumeGame()
+    {
         Time.timeScale = timeScale;
         isGamePause = false;
     }
