@@ -23,6 +23,7 @@ public class inGameGUI : MonoBehaviour
         pauseMenu.SetActive(false);
         tabGUI.SetActive(false);
         isGameStart = false;
+        isGamePause = false;
     }
 
     // Update is called once per frame
@@ -72,29 +73,53 @@ public class inGameGUI : MonoBehaviour
         Time.timeScale = timeScale;
         isGamePause = false;
     }
-    public void menuBack(){
-        m_mainMenu.SetActive(true);
-        m_startUpMenu.SetActive(false);
-        m_settingMenu.SetActive(false);
+    public void menuBack()
+    {
+        if (!isGameStart)
+        {
+            m_mainMenu.SetActive(true);
+            m_startUpMenu.SetActive(false);
+            m_settingMenu.SetActive(false);
+        }
+        else
+        {
+            tabGUI.SetActive(false);
+            pauseMenu.SetActive(false);
+            Time.timeScale = 0.0f;
+            isGameStart = false;
+            isGamePause = false;
+            m_mainMenu.SetActive(true);
+        }
     }
 
-    public void startUpMenu(){
+    public void startUpMenu()
+    {
         m_mainMenu.SetActive(false);
         m_startUpMenu.SetActive(true);
         m_settingMenu.SetActive(false);
     }
 
-    public void settingMenu(){
+    public void settingMenu()
+    {
         m_mainMenu.SetActive(false);
         m_startUpMenu.SetActive(false);
         m_settingMenu.SetActive(true);
     }
 
-    public void startGame(){
-        m_startUpMenu.SetActive(false); 
+    public void startGame()
+    {
+        profileIO pio = GetComponent<profileIO>();
+
+        m_startUpMenu.SetActive(false);
+        pio.buildScene();
 
         //to be added scene generation
         isGameStart = true;
         Time.timeScale = timeScale;
+    }
+
+    public void killGame()
+    {
+        Application.Quit();
     }
 }
