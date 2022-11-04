@@ -6,37 +6,35 @@ using SharpConfig;
 
 public class profileIO : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject MainUR;
+    public Configuration cfg = new Configuration();
 
-    //define the default setting
-    private Vector3 initialPosition = new Vector3(0f, 1.5f, 0f);
-    private Vector3 initialRotation = new Vector3(0f, 0f, 0f);
-
-
-    // Start is called before the first frame update
-    void Start()
+    //create file if not exist, and then load the file into memory
+    public void findOrBuild(string fName)
     {
+        if (!File.Exists("./" + fName))
+        {
+            Debug.Log("File does not exist! \nCreating new one...");
+            cfg.SaveToFile("./" + fName);
+        }
 
+        cfg = Configuration.LoadFromFile("./" + fName);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
+    //save the file in memory with given name
+    public void saveCFG(string fName){
+        Debug.Log("Saving File as" + fName);
+        cfg.SaveToFile("./" + fName);
     }
 
-    public void findOrBuild()
+    public T getFromCFG<T>(string section, string config)
     {
-
+        return cfg[section][config].GetValue<T>();
     }
 
-    public void buildScene()
+    public void setToCFG<T>(string section, string config, T value)
     {
-        Rigidbody m_Rigidbody = MainUR.GetComponent<Rigidbody>();
-
-        m_Rigidbody.position = initialPosition;
-        Quaternion m_Rotation = Quaternion.Euler(initialRotation);
-        m_Rigidbody.rotation = m_Rotation;
+        cfg[section][config].SetValue(value);
     }
+
+
 }
