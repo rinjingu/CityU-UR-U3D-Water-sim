@@ -111,7 +111,6 @@ public class inGameGUI : MonoBehaviour
         profileIO pio = GetComponent<profileIO>();
 
         m_startUpMenu.SetActive(false);
-        pio.buildScene();
 
         //to be added scene generation
         isGameStart = true;

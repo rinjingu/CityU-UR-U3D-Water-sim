@@ -10,6 +10,7 @@ public class sceneGeneration : MonoBehaviour
     public Toggle useDefaultToggle;
     public Toggle randomizeToggle;
     public TMP_InputField randomSeedInputField;
+    public GameObecjt MainGUI;
     public GameObject propTest;
     public GameObject prop1;
     public GameObject MainUR;
@@ -42,6 +43,10 @@ public class sceneGeneration : MonoBehaviour
             }
             return;
         }
+        else
+        {
+
+        }
     }
 
     public void randomSceneSetUp(int randomSeed)
@@ -55,8 +60,13 @@ public class sceneGeneration : MonoBehaviour
         );
     }
 
+    // generate a float number between given range
     public float randomNumber(float min, float max, System.Random rand)
     {
         return (min + (max - min) * (float)rand.NextDouble());
+    }
+
+    private void costumSceneSetUp()
+    {
     }
 }
