@@ -10,7 +10,7 @@ public class sceneGeneration : MonoBehaviour
     public Toggle useDefaultToggle;
     public Toggle randomizeToggle;
     public TMP_InputField randomSeedInputField;
-    public GameObecjt MainGUI;
+    public GameObject MainGUI;
     public GameObject propTest;
     public GameObject prop1;
     public GameObject MainUR;
