@@ -13,7 +13,11 @@ public class sceneGeneration : MonoBehaviour
     public GameObject MainGUI;
     public GameObject propTest;
     public GameObject prop1;
+    public GameObject prop1b;
     public GameObject MainUR;
+    public GameObject prop2;
+    public GameObject prop3a;
+    public GameObject prop3b;
 
     // Start is called before the first frame update
     void Start() { }
@@ -26,6 +30,7 @@ public class sceneGeneration : MonoBehaviour
         if (useDefaultToggle.isOn)
         {
             Debug.Log("Using Default set up!");
+            randomSceneSetUp(1);
             return;
         }
         else if (randomizeToggle.isOn)
@@ -58,6 +63,14 @@ public class sceneGeneration : MonoBehaviour
             1.264f,
             randomNumber(-5f, 18.61f, rng)
         );
+
+        Vector3 prop1Center = new Vector3(17.5f,0.775f,randomNumber(-3f,18f, rng));
+        prop1.GetComponent<Transform>().position = prop1Center;
+        prop1b.GetComponent<Transform>().position = prop1Center + new Vector3(-1f,-0.37f,0f);
+        prop2.GetComponent<Transform>().position = new Vector3(randomNumber(0f,38f, rng),0.05f,18f);
+        Vector3 prop3Center = new Vector3(randomNumber(20f,40f, rng),0.405f,randomNumber(-2f,10f, rng));
+        prop3a.GetComponent<Transform>().position = prop3Center;
+        prop3b.GetComponent<Transform>().position = (new Vector3(randomNumber(-1f,1f, rng),0,randomNumber(-1f,1f, rng)) + prop3Center);
     }
 
     // generate a float number between given range
