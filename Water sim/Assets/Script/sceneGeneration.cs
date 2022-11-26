@@ -50,7 +50,7 @@ public class sceneGeneration : MonoBehaviour
         }
         else
         {
-
+            // TODO: add custom scene building 
         }
     }
 
