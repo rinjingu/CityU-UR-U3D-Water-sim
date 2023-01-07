@@ -108,7 +108,6 @@ public class inGameGUI : MonoBehaviour
 
     public void startGame()
     {
-        profileIO pio = GetComponent<profileIO>();
 
         m_startUpMenu.SetActive(false);
 

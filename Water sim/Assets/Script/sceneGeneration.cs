@@ -18,6 +18,7 @@ public class sceneGeneration : MonoBehaviour
     public GameObject prop2;
     public GameObject prop3a;
     public GameObject prop3b;
+    private Configuration cfg;
 
     // Start is called before the first frame update
     void Start() { }
@@ -51,6 +52,8 @@ public class sceneGeneration : MonoBehaviour
         else
         {
             // TODO: add custom scene building 
+            Debug.Log("Using custom scene set up");
+            costumSceneSetUp();
         }
     }
 
@@ -81,5 +84,25 @@ public class sceneGeneration : MonoBehaviour
 
     private void costumSceneSetUp()
     {
+        foreach (var section in cfg)
+        {
+            foreach(var item in section){
+                switch (section)
+                {
+                    case "props":{
+                        GameObject thisProps = GameObject.Find(item);
+                        thisProps.GetComponent<Transform>().position = pio.getFromCFG<int[]>(section,item);
+                        break;
+                    }
+                    case "watering":{
+                        GameObject water = GameObject.Find("water");
+                        break;
+                    }
+                    default:
+                        break;
+                }
+            }
+        }
+        return;
     }
 }
