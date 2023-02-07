@@ -29,8 +29,6 @@ public class settingPage : MonoBehaviour
 
     public void applySetting()
     {
-
-
         int fps;
 
         if (fpsToggle.isOn)

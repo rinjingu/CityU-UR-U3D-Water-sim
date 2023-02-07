@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+///<summary>
+///Script for GUI used in the simulator
+///</summary>
 public class inGameGUI : MonoBehaviour
 {
     public GameObject tabGUI;
@@ -115,6 +118,8 @@ public class inGameGUI : MonoBehaviour
         isGameStart = true;
         Time.timeScale = timeScale;
     }
+
+
 
     public void killGame()
     {

@@ -3,6 +3,12 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+///<summary>
+///Controller of the controllable object in the simulator.
+///</summary>
+///<remarks>
+///Edit this class and attach methods from other classes into this class in order to change movement method.
+///</remarks>
 public class URController : MonoBehaviour
 {
     private Vector3 inVector = new Vector3();
@@ -27,6 +33,8 @@ public class URController : MonoBehaviour
         UpdateMovement();
     }
 
+    // Wait for improvement
+    // Read input keynodes to change object's rotation
     void getDirection()
     {
         float m_rot = 0.0f;
@@ -44,6 +52,8 @@ public class URController : MonoBehaviour
         m_Rigidbody.MoveRotation(m_Rigidbody.rotation * m_Rotation);
     }
 
+    // Wait for improvement
+    // Read input keynodes to change object's position
     void UpdateMovement()
     {
         float m_acc = 0.0f;

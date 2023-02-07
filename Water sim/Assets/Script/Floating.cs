@@ -3,6 +3,12 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+///<summary>
+///Introduce hydrodynamic in the simulator
+///</summary>
+///<remarks>
+///WIP
+///</remarks>
 public class Floating : MonoBehaviour
 {
     Rigidbody m_Rigidbody;
